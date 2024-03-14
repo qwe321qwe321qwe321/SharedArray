@@ -10,7 +10,8 @@ It's designed to reduce the overhead of communicating between C# job data in `Na
 
 Minimum Unity version is 2018.4.
 
-Package Manager -> Add package from git URL -> `https://github.com/qwe321qwe321qwe321/SharedArray.git?b=package`
+### From Package Manager
+  Add package from git URL -> `https://github.com/qwe321qwe321qwe321/SharedArray.git?#package`
 
 
 ## Usage
