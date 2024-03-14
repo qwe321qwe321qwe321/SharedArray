@@ -1,5 +1,6 @@
 {
     "name": "com.stella3d.sharedarray",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [
         "Android",
@@ -9,8 +10,10 @@
         "Lumin",
         "macOSStandalone",
         "PS4",
+        "PS5",
         "Switch",
         "tvOS",
+        "WebGL",
         "WindowsStandalone32",
         "WindowsStandalone64",
         "XboxOne"
