@@ -3,11 +3,15 @@ A `SharedArray` is a segment of memory that is represented both as a normal C# a
 
 It's designed to reduce the overhead of communicating between C# job data in `NativeArray` and APIs that use a normal array of structs, such as [Graphics.DrawMeshInstanced()](https://docs.unity3d.com/ScriptReference/Graphics.DrawMeshInstanced.html), by eliminating the need to copy data.
 
+*This is the modified version from [@stella3d](https://github.com/stella3d/SharedArray).*
+
+
 ## Installation
 
 Minimum Unity version is 2018.4.
 
-To install, grab the latest .unitypackage [from the Releases Tab](https://github.com/stella3d/SharedArray/releases) and import it to your project.
+Package Manager -> Add package from git URL -> `https://github.com/qwe321qwe321qwe321/SharedArray.git?b=package`
+
 
 ## Usage
 
@@ -77,3 +81,16 @@ These `Unity.Mathematics` types have optimizations specific to the [Burst compil
   
 For types that are laid out the same in memory, we can just treat one like the other.  Since we do this for the whole array, there is never any conversion between types happening, and thus no overhead - it's just a different "view" on the same memory.
 
+## Troubleshooting
+
+### ArgumentException: Object contains non-primitive or non-blittable data.
+[I opened an issue for this issue if you are interested.](https://github.com/stella3d/SharedArray/issues/2)
+
+TLDR solution:
+* Add the attribute [MarshalAs(UnmanagedType.U1)] to your boolean fields.
+  ```
+  public struct CustomStructA {
+      [MarshalAs(UnmanagedType.U1)]
+      public bool booleanVar;
+  }
+  ```
